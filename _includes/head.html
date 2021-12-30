@@ -1,0 +1,48 @@
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	{% if page.category %}
+	{% assign series_name = page.category | replace: '-', ' ' %}
+	{% endif %}
+	
+	<title>{% if page.title %}{{ page.title | escape }} - {{ series_name | escape }}
+    {% else %}{{ site.title | escape }}{% endif %}</title>
+
+	<!-- Meta Descriptions -->
+	<meta property="og:type" content="website">
+	<meta property="og:url" content="https://Solo-Universe.github.io/">
+	<meta property="og:title" content="{% if page.title %}{{ series_name | escape }} - {{ page.title | escape }}{% else %}Solo Universe by Dr.Solo{% endif %}">
+	<meta property="og:description" content="A series of Danmei stories set in the same universe.">
+	<meta property="og:site_name" content="Solo Universe">
+	<meta property="og:image" content="https://Solo-Universe.github.io/assets/img/banner.jpg">
+	<meta name="theme-color" content="#314C5D">
+
+	<meta name="twitter:card" content="summary_large_image">
+	<link type="application/json+oembed" href="/oembed.json" />
+
+	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+	<link rel="manifest" href="/site.webmanifest">
+
+
+	<!-- UIkit CSS -->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.9.4/dist/css/uikit.min.css" />
+	<link rel="stylesheet" type="text/css" href="{{"assets/css/base.css" | relative_url }}">
+
+	<!-- UIkit JS -->
+	<script src="https://cdn.jsdelivr.net/npm/uikit@3.9.4/dist/js/uikit.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/uikit@3.9.4/dist/js/uikit-icons.min.js"></script>
+
+	<!-- JS Libraries -->
+	<script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
+	<script src="/assets/js/charming.min.js"></script>
+	<script src="https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js"></script>
+
+	<style type="text/css">
+		body {
+			background-color: {{ page.color }};
+		}
+	</style>
+</head>

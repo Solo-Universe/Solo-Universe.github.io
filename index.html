@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Solo Universe</title>
+
+	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+	<link rel="manifest" href="/site.webmanifest">
+
+	<!-- UIkit CSS -->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.9.4/dist/css/uikit.min.css" />
+
+	<!-- UIkit JS -->
+	<script src="https://cdn.jsdelivr.net/npm/uikit@3.9.4/dist/js/uikit.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/uikit@3.9.4/dist/js/uikit-icons.min.js"></script>
+
+	<!-- JS Libraries -->
+	<script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
+	<script src="/assets/js/charming.min.js"></script>
+	<script src="https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js"></script>
+
+	<style type="text/css">
+		@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono&family=Lato:wght@700&family=Lexend+Tera:wght@100..900&family=Merriweather:ital,wght@0,400;0,700;1,400;1,700&family=Rock+Salt&display=swap');
+
+		html {
+			background: none;
+		}
+
+		body {
+			--color-text: #fff;
+			--color-bg: #6314e0;
+			--color-link: #93fbfb;
+			--color-link-hover: #fff;
+			--color-info: #fff;
+			--color-main-text: #fff;
+			--color-scroll-text: #fff;
+			--font-scroll-text: 'Rock Salt', cursive;
+			--fontsize-scroll-text: 8vw;
+			background-color: rgba(129,25,28,1);
+			transition: background-color 1s;
+			font-family: 'Merriweather', serif;
+			-webkit-font-smoothing: antialiased;
+			-moz-osx-font-smoothing: grayscale;
+
+			/*animation-name: heroBackgroundColors;
+			animation-duration: 5s;
+			animation-iteration-count: infinite;
+			animation-direction: alternate;*/
+		}
+
+		@keyframes heroBackgroundColors {
+			0% {
+				background-color: rgba(129,25,28,1);
+			}
+			25% {
+				background-color: rgba(69,28,70,1);
+			}
+			50% {
+				background-color: rgba(49,76,93,1);
+			}
+			75% {
+				background-color: rgba(89,115,129,1);
+			}
+			100% {
+				background-color: rgba(129,25,28,1);
+			}
+		}
+
+		p {
+			font-size: 20px;
+		}
+
+		.no-background {
+			background-color: transparent!important;
+			box-shadow: none!important;
+		}
+
+		.overlay-blend {
+			mix-blend-mode: overlay;
+		}
+
+
+		.content__main, 
+		.content__contact {
+			color: var(--color-main-text);
+			z-index: 1000;
+		}
+
+		.content__text {
+			color: var(--color-scroll-text);
+			font-family: 'Rock Salt', cursive;
+		}
+
+		.series-title {
+			font-family: 'Lexend Tera', sans-serif;
+			font-variation-settings: 'wght' 100;
+			/*animation: breathe 4000ms infinite forwards;*/
+			color: white;
+		}
+
+		@keyframes breathe {
+		  60% {
+		    font-variation-settings: 'wght' 900;
+		  }
+
+		  100% {
+		    font-variation-settings: 'wght' 100;
+		  }
+		}
+
+		@keyframes bigger {
+			0% {font-variation-settings: "wght" 100, "wdth" 70; }
+			50% {font-variation-settings: "wght" 900, "wdth" 70; }
+			100% {font-variation-settings: "wght" 100, "wdth" 70; }
+		}
+		.series-title span {
+			animation: bigger infinite;
+			animation-duration: 2s;
+			animation-timing-function: ease;
+			font-variation-settings: "wdth" 70;
+		} 
+		.series-title span:nth-child(2) {animation-delay: .1s}
+		.series-title span:nth-child(3) {animation-delay: .2s}
+		.series-title span:nth-child(4) {animation-delay: .3s}
+		.series-title span:nth-child(5) {animation-delay: .4s}
+		.series-title span:nth-child(6) {animation-delay: .5s}
+		.series-title span:nth-child(7) {animation-delay: .6s}
+		.series-title span:nth-child(8) {animation-delay: .7s}
+		.series-title span:nth-child(9) {animation-delay: .8s}
+		.series-title span:nth-child(10) {animation-delay: .9s}
+		.series-title span:nth-child(11) {animation-delay: 1s}
+		.series-title span:nth-child(12) {animation-delay: 1.1s}
+		.series-title span:nth-child(13) {animation-delay: 1.2s}
+
+		.uk-card-title, h3, .link {
+			font-family: 'Rock Salt', cursive;
+		}
+
+		.year-namecard {
+			font-family: 'Rock Salt', cursive;
+			color: lightgray!important;
+			opacity: 0.5;
+			margin-bottom: -80px;
+			margin-right: -10px;
+			z-index: -1;
+			mix-blend-mode: multiply;
+		}
+
+		.chinese-chapter {
+			color: #f0506e;
+			margin-top: -10px;
+		}
+
+		.bg-gradient {
+			/*background: linear-gradient(125deg, rgba(129,25,28,0.5), rgba(69,28,70,0.5), rgba(49,76,93,0.5), rgba(89,115,129,0.5));*/
+			background: linear-gradient(125deg, rgba(129,25,28,0.5), rgba(89,115,129,0.5));
+			position: fixed;
+			width: 100%;
+			height: 100%;
+			pointer-events: none;
+		}
+
+		.uk-button, .uk-label {
+			font-family: 'JetBrains Mono', monospace;
+		}
+
+		.uk-label:hover {
+			opacity: 0.7;
+			
+			color: #666!important;
+			text-decoration: none;
+		}
+
+		.card-icon {
+			margin-top: -10px;
+		}
+	</style>
+</head>
+<body>
+<div class="content">
+	<!-- <div class="bg-gradient" uk-height-viewport></div> -->
+	<div class="uk-container">
+		<!-- Hero -->
+		<div class="content__section uk-flex uk-flex-middle uk-flex-center" data-bgcolor="rgba(129,25,28,1)" uk-height-viewport>
+			<h2 class="content__text"></h2>
+			<div class="content__main">
+				<div class="uk-flex uk-flex-center uk-grid uk-margin-medium-top" uk-grid>
+					<div class="uk-width-1-1 uk-text-center">
+						<!-- <h1 class="series-title"><span>Solo</span><br><span>Universe</span></h1> -->
+						<h1 class="content__text series-title uk-margin-remove"><span class="char1" data-initial="S">S</span><span class="char2" data-initial="o">o</span><span class="char3" data-initial="l">l</span><span class="char4" data-initial="o">o</span></h1>
+						<h1 class="content__text series-title uk-margin-remove"><span class="char5" data-initial="U">U</span><span class="char6" data-initial="n">n</span><span class="char7" data-initial="i">i</span><span class="char8" data-initial="v">v</span><span class="char9" data-initial="e">e</span><span class="char10" data-initial="r">r</span><span class="char11" data-initial="s">s</span><span class="char12" data-initial="e">e</span></h1>
+					</div>
+					<div>
+						<div class="uk-card uk-card-secondary uk-card-body no-background">
+							<p>Several <a class="uk-link-text" href="https://sevenseasdanmei.com" target="_blank">Danmei</a> series written by Dr. Solo share the same continuity, forming the <em>Solo Universe</em> (Solo 宇宙). However, each series are fairly stand alone and can still be enjoyed separately. The series spans across various subject matters, from sports to various parts of show biz.</em></p>
+
+							<div class="uk-text-center uk-margin uk-blend-overlay"><span uk-icon="icon: more; ratio: 2"></span></div>
+						</div>
+					</div>
+				</div>
+				<div class="uk-child-width-1-1 uk-child-width-auto@s uk-margin-large-bottom uk-flex-center uk-margin-remove-top" uk-grid>
+					<div>
+						<a class="uk-card uk-card-default uk-card-body uk-border-rounded uk-padding-small uk-link-toggle" onmouseover="document.body.style.backgroundColor = 'rgba(69,28,70,1)'" href="#deal-or-love" uk-scroll>
+						    <h1 class="year-namecard uk-text-right uk-margin-large-left">2015</h1>
+				            <h3 class="uk-card-title uk-text-left"><span class="uk-link-heading">Deal or Love</span></h3>
+				            <p class="uk-text-meta uk-text-left chinese-chapter"><s>包养</s>初恋这件小事</p>
+						</a>
+					</div>
+					<div>
+						<a class="uk-card uk-card-default uk-card-body uk-border-rounded uk-padding-small uk-link-toggle" onmouseover="document.body.style.backgroundColor = 'rgba(129,25,28,1)'" href="#my-neighbour" uk-scroll>
+						    <h1 class="year-namecard uk-text-right uk-margin-large-left">2015</h1>
+				            <h3 class="uk-card-title uk-text-left"><span class="uk-link-heading">My Neighbour Wen Xiaohua</span></h3>
+				            <p class="uk-text-meta uk-text-left chinese-chapter">竹马温小花</p>
+						</a>
+					</div>
+					<div>
+						<a class="uk-card uk-card-default uk-card-body uk-border-rounded uk-padding-small uk-link-toggle" onmouseover="document.body.style.backgroundColor = 'rgba(49,76,93,1)'" href="#fencing" uk-scroll>
+						    <h1 class="year-namecard uk-text-right uk-margin-large-left">2016</h1>
+				            <h3 class="uk-card-title uk-text-left"><span class="uk-link-heading">En garde Prêt Allez!!</span></h3>
+				            <p class="uk-text-meta uk-text-left chinese-chapter">针尖压麦芒</p>
+						</a>
+					</div>
+					<div>
+						<a class="uk-card uk-card-default uk-card-body uk-border-rounded uk-padding-small uk-link-toggle" onmouseover="document.body.style.backgroundColor = 'rgba(69,28,70,1)'" href="#soul-vibration" uk-scroll>
+						    <h1 class="year-namecard uk-text-right uk-margin-large-left">2017</h1>
+				            <h3 class="uk-card-title uk-text-left"><span class="uk-link-heading">Soul Vibration</span></h3>
+				            <p class="uk-text-meta uk-text-left chinese-chapter">灵魂骚动</p>
+						</a>
+					</div>
+					<div>
+						<a class="uk-card uk-card-default uk-card-body uk-border-rounded uk-padding-small uk-link-toggle" onmouseover="document.body.style.backgroundColor = 'rgba(89,115,129,1)'" href="#stargazing-with-you" uk-scroll>
+						    <h1 class="year-namecard uk-text-right uk-margin-large-left">2018</h1>
+				            <h3 class="uk-card-title uk-text-left"><span class="uk-link-heading">Stargazing with You</span></h3>
+				            <p class="uk-text-meta uk-text-left chinese-chapter">陪你一起看星星/萨摩瑛与赫士奇</p>
+						</a>
+					</div>
+					<div>
+						<a class="uk-card uk-card-default uk-card-body uk-border-rounded uk-padding-small uk-link-toggle" onmouseover="document.body.style.backgroundColor = 'rgba(69,28,70,1)'" href="#gone-with-the-wind" uk-scroll>
+						    <h1 class="year-namecard uk-text-right uk-margin-large-left">2018</h1>
+				            <h3 class="uk-card-title uk-text-left"><span class="uk-link-heading">Gone with the Wind</span></h3>
+				            <p class="uk-text-meta uk-text-left chinese-chapter">轻错</p>
+						</a>
+					</div>
+					<div>
+						<a class="uk-card uk-card-default uk-card-body uk-border-rounded uk-padding-small uk-link-toggle" onmouseover="document.body.style.backgroundColor = 'rgba(238,177,61,1)'" href="#lemon-lightning" uk-scroll>
+						    <h1 class="year-namecard uk-text-right uk-margin-large-left">2020</h1>
+				            <h3 class="uk-card-title uk-text-left"><span class="uk-link-heading">Lemon Lightning</span></h3>
+				            <p class="uk-text-meta uk-text-left chinese-chapter">柠檬闪电</p>
+						</a>
+					</div>
+					<div>
+						<a class="uk-card uk-card-default uk-card-body uk-border-rounded uk-padding-small uk-link-toggle" onmouseover="document.body.style.backgroundColor = 'rgba(69,28,70,1)'" href="#lose-control" uk-scroll>
+						    <h1 class="year-namecard uk-text-right uk-margin-large-left">2021</h1>
+				            <h3 class="uk-card-title uk-text-left"><span class="uk-link-heading">Lose Control</span></h3>
+				            <p class="uk-text-meta uk-text-left chinese-chapter">完美失控</p>
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div id="gone-with-the-wind"></div>		
+		<div class="content__section" data-bgcolor="rgba(69,28,70,1)" uk-height-viewport>
+			<h2 class="content__text uk-margin-medium-top">Gone with the Wind</h2>
+			<div class="content__main uk-margin-medium-top" uk-grid>
+				<div class="uk-width-1-3 uk-text-center">
+					<img class="uk-box-shadow-medium uk-border-rounded uk-inline-clip" src="assets/img/gone-with-the-wind.jpg" alt="Cover art for Gone with the Wind">
+					<div class="uk-grid uk-blend-overlay uk-flex uk-flex-middle uk-flex-center uk-margin-medium-top" uk-grid>
+						<div><p>Sui Qingchi<br>隋轻驰</p></div>
+						<div><span uk-icon="icon: close; ratio: 2"></span></div>
+						<div><p>Fu Cuo<br>傅错</p></div>
+					</div>
+				</div>
+				<div class="uk-width-expand">
+					<div class="uk-card uk-card-secondary uk-card-body no-background uk-card-small">
+						<p><em>Gone with the Wind</em> (轻错 <i>Qīng Cuò lit. Tender Mistakes</i>) is a Chinese music band romance by Dr. Solo. It's part of the <em>Solo Universe — Show Biz</em> series. The story primarily revolves around the meteoric rise and eventual fallout of the vocalist-guitarist duo of an underground rock band — <em>West Wind</em>.</p>
+
+			            <p>The novel was serialized from 2018-2019 on the <a class="uk-link-text" href="https://www.gongzicp.com/v4/novel-13327.html" target="_blank">Chinese Web Novel website CPWXW (长佩文学网)</a> and is completed at 99 chapters. A manhua adaptation is currently being serialized weekly on <a class="uk-link-text" href="https://manga.bilibili.com/detail/mc29472" target="_blank">Bilibili Comics.</a> It includes new scenes written specifically for the manhua by the novel author!</p>
+			            
+			            <blockquote cite="#" class="uk-margin-left uk-padding-small overlay-blend">
+						    <p class="uk-margin-small-bottom">It was me who made a mistake, and you are punishing me for it.</p>
+						    <footer>Vocal of West Wind, Sui Qingchi in <cite><a href="#">Gone with the Wind</a></cite></footer>
+						</blockquote>
+
+						<blockquote cite="#" class="uk-margin-right uk-padding-small uk-text-right overlay-blend">
+						    <p class="uk-margin-small-bottom">The song "Beautiful" was written for you.</p>
+						    <footer>Guitar of West Wind, Fu Cuo in <cite><a href="#">Gone with the Wind</a></cite></footer>
+						</blockquote>
+					</div>
+				</div>
+				<div class="uk-width-1-1">
+					<div class="uk-card uk-card-secondary uk-card-body no-background">
+			            <div class="uk-grid" uk-grid>
+			            	<div class="uk-width-auto">
+			            		<h3>Tags</h3>
+			            	</div>
+			            	<div class="uk-width-expand overlay-blend">
+			            		<span class="uk-label">Drama</span>
+			            		<span class="uk-label">Romance</span>
+			            		<span class="uk-label">Rock Music</span>
+			            		<a class="uk-label" href="https://en.wikipedia.org/wiki/Underground_music" target="_blank">Underground Bands</a>
+			            		<a class="uk-label" href="https://en.wikipedia.org/wiki/Show_business" target="_blank">Showbiz</a>
+			            		<span class="uk-label">Betrayal</span>
+			            		<span class="uk-label">Tragedy</span>
+			            		<span class="uk-label">Flashbacks</span>
+			            		<span class="uk-label">Misunderstandings</span>
+			            	</div>
+			            </div>
+			            <div class="uk-margin-medium-top" uk-grid>
+			            	<div class="uk-width-auto">
+			            		<h3>Links</h3>
+			            	</div>
+			            	<div class="uk-width-expand overlay-blend">
+			            		<a class="uk-label" href="https://www.mangaupdates.com/series.html?id=182504" target="_blank">Manga Updates</a>
+			            		<a class="uk-label" href="https://www.novelupdates.com/series/gone-with-the-wind/" target="_blank">Novel Updates</a>
+			            		<a class="uk-label" href="https://manga.bilibili.com/detail/mc29472" target="_blank">Manhua Raw</a>
+			            		<a class="uk-label" href="https://www.gongzicp.com/novel-13327.html" target="_blank">Novel Raw</a>
+			            	</div>
+			            </div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div id="fencing"></div>		
+		<div class="content__section" data-bgcolor="rgba(49,76,93,1)" uk-height-viewport>
+			<h2 class="content__text uk-margin-medium-top">En garde Prêt Allez!!</h2>
+			<div class="content__main uk-margin-medium-top" uk-grid>
+				<div class="uk-width-1-3 uk-text-center">
+					<img class="uk-box-shadow-medium uk-border-rounded uk-inline-clip" src="assets/img/fencing.jpg" alt="Cover art for En garde Prêt Allez!!">
+					<div class="uk-grid uk-blend-overlay uk-flex uk-flex-middle uk-flex-center uk-margin-medium-top" uk-grid>
+						<div><p>Ling Xiao<br>凌霄</p></div>
+						<div><span uk-icon="icon: close; ratio: 2"></span></div>
+						<div><p>Qiao Mai<br>乔麦</p></div>
+					</div>
+				</div>
+				<div class="uk-width-expand">
+					<div class="uk-card uk-card-secondary uk-card-body no-background uk-card-small">
+						<p><em>En garde Prêt Allez!!</em> (针尖压麦芒 <i>Zhēn Jiān Yā Mài Máng</i>) is a fencing sports romance. The story primarily revolves around a pair of fencers that went on to compete in the Olympics.</p>
+
+			            <p>The novel was serialized from 2016.8.1-2017.1.25 on a Chinese forum and is completed at 53 chapters. It has an audio drama and a manhua adaptation is currently being serialized weekly on <a class="uk-link-text" href="https://manga.bilibili.com/detail/mc30551" target="_blank">Bilibili Comics.</a></p>
+			            
+			            <blockquote cite="#" class="uk-margin-left uk-padding-small overlay-blend">
+						    <p class="uk-margin-small-bottom">The obsessed fencer who just want to embrace the runner-up on the podium as the champion.</p>
+						    <footer><cite>En garde Prêt Allez!!</cite></footer>
+						</blockquote>
+					</div>
+				</div>
+				<div class="uk-width-1-1">
+					<div class="uk-card uk-card-secondary uk-card-body no-background">
+			            <div class="uk-grid" uk-grid>
+			            	<div class="uk-width-auto">
+			            		<h3>Tags</h3>
+			            	</div>
+			            	<div class="uk-width-expand overlay-blend">
+			            		<span class="uk-label">Drama</span>
+			            		<span class="uk-label">Romance</span>
+			            		<span class="uk-label">Fencing</span>
+			            		<span class="uk-label">Sports</span>
+			            	</div>
+			            </div>
+			            <div class="uk-margin-medium-top" uk-grid>
+			            	<div class="uk-width-auto">
+			            		<h3>Links</h3>
+			            	</div>
+			            	<div class="uk-width-expand overlay-blend">
+			            		<a class="uk-label" href="#" target="_blank">Manga Updates</a>
+			            		<a class="uk-label" href="#" target="_blank">Novel Updates</a>
+			            		<a class="uk-label" href="https://manga.bilibili.com/detail/mc30551" target="_blank">Manhua Raw</a>
+			            		<a class="uk-label" href="https://www.gongzicp.com/novel-243491.html" target="_blank">Novel Raw</a>
+			            	</div>
+			            </div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div id="stargazing-with-you"></div>		
+		<div class="content__section" data-bgcolor="rgba(89,115,129,1)" uk-height-viewport>
+			<h2 class="content__text uk-margin-medium-top">Stargazing with You</h2>
+			<div class="content__main uk-margin-medium-top" uk-grid>
+				<div class="uk-width-1-3 uk-text-center">
+					<img class="uk-box-shadow-medium uk-border-rounded uk-inline-clip" src="assets/img/stargazing-with-you.jpg" alt="Cover art for Stargazing with You">
+					<div class="uk-grid uk-blend-overlay uk-flex uk-flex-middle uk-flex-center uk-margin-medium-top" uk-grid>
+						<div><p>Bai Ying<br>白瑛</p></div>
+						<div><span uk-icon="icon: close; ratio: 2"></span></div>
+						<div><p>Jiang He<br>姜赫</p></div>
+					</div>
+				</div>
+				<div class="uk-width-expand">
+					<div class="uk-card uk-card-secondary uk-card-body no-background uk-card-small">
+						<p><em>Stargazing with You</em> (陪你一起看星星 <i>Péi Nǐ Yī Qǐ Kàn Xīng Xīng</i>), also known as <em>Samoyed and Husky</em> (萨摩瑛与赫士奇 <i>Sà Mó Yīng Yǔ Hè Shì Qí</i>) is a slice of life romance by Dr. Solo. The story primarily revolves around a pair of childhood friends from their birth up until their university life. It also touched on cybersecurity and white hat hackers.</p>
+
+			            <p>The novel was serialized from 2018.3.25-2018.9.18 on the <a class="uk-link-text" href="https://afdian.net/@drsolo" target="_blank">Chinese Patreon-like website AFDian (爱发电)</a> and is completed at 37 chapters. A manhua adaptation is currently being serialized weekly on <a class="uk-link-text" href="https://manga.bilibili.com/detail/mc30550" target="_blank">Bilibili Comics.</a></p>
+					</div>
+				</div>
+				<div class="uk-width-1-1">
+					<div class="uk-card uk-card-secondary uk-card-body no-background">
+			            <div class="uk-grid" uk-grid>
+			            	<div class="uk-width-auto">
+			            		<h3>Tags</h3>
+			            	</div>
+			            	<div class="uk-width-expand overlay-blend">
+			            		<span class="uk-label">Slice of Life</span>
+			            		<span class="uk-label">Romance</span>
+			            		<span class="uk-label">Childhood Friends</span>
+			            		<span class="uk-label">Hacker</span>
+			            		<span class="uk-label">School Life</span>
+			            	</div>
+			            </div>
+			            <div class="uk-margin-medium-top" uk-grid>
+			            	<div class="uk-width-auto">
+			            		<h3>Links</h3>
+			            	</div>
+			            	<div class="uk-width-expand overlay-blend">
+			            		<a class="uk-label" href="#" target="_blank">Manga Updates</a>
+			            		<a class="uk-label" href="#" target="_blank">Novel Updates</a>
+			            		<a class="uk-label" href="https://manga.bilibili.com/detail/mc30550" target="_blank">Manhua Raw</a>
+			            		<a class="uk-label" href="https://www.gongzicp.com/novel-243489.html" target="_blank">Novel Raw</a>
+			            	</div>
+			            </div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div id="lemon-lightning"></div>		
+		<div class="content__section" data-bgcolor="rgba(238,177,61,1)" uk-height-viewport>
+			<h2 class="content__text uk-margin-medium-top">Lemon Lightning</h2>
+			<div class="content__main uk-margin-medium-top" uk-grid>
+				<div class="uk-width-1-3 uk-text-center">
+					<img class="uk-box-shadow-medium uk-border-rounded uk-inline-clip" src="assets/img/lemon-lightning.jpg" alt="Cover art for Lemon Lightning">
+					<div class="uk-grid uk-blend-overlay uk-flex uk-flex-middle uk-flex-center uk-margin-medium-top" uk-grid>
+						<div><p>Qin Weihang<br>秦威航</p></div>
+						<div><span uk-icon="icon: close; ratio: 2"></span></div>
+						<div><p>An Ning<br>安宁</p></div>
+					</div>
+				</div>
+				<div class="uk-width-expand">
+					<div class="uk-card uk-card-secondary uk-card-body no-background uk-card-small">
+						<p><em>Lemon Lightning</em> (柠檬闪电 <i>Níng Méng Shǎn Diàn</i>) is a school life slice-of-life romance. This is a slow-burn of a blossoming relationship between the top student and the most attractive person in the faculty.</p>
+
+						<p>An Ning is a poor law student at A University. He’s nice, hardworking and has a huge sense of justice. His time is spent on studying and working to provide for himself. Qin Weihang is a handsome law student who is blunt and closed-off. He rarely attends classes and doesn’t put effort in his studies. Most of his time is spent outside of school doing the one thing he loves—rock climbing. These two with different personalities became roommates at the start of the school year and a chemical reaction waiting to happen.</p>
+
+			            <p>The novel was serialized on 2020 on the <a class="uk-link-text" href="https://www.gongzicp.com/novel-215921.html" target="_blank">Chinese Web Novel website CPWXW (长佩文学网)</a> and is completed at 65 chapters. A manhua adaptation is currently being serialized weekly on <a class="uk-link-text" href="https://manga.bilibili.com/detail/mc29547" target="_blank">Bilibili Comics.</a></p>
+			            
+			            <blockquote cite="#" class="uk-margin-left uk-padding-small overlay-blend">
+						    <p class="uk-margin-small-bottom">Hearts move like lightning, pound like lemons</p>
+						    <footer><cite>Lemon Lightning</cite></footer>
+						</blockquote>
+					</div>
+				</div>
+				<div class="uk-width-1-1">
+					<div class="uk-card uk-card-secondary uk-card-body no-background">
+			            <div class="uk-grid" uk-grid>
+			            	<div class="uk-width-auto">
+			            		<h3>Tags</h3>
+			            	</div>
+			            	<div class="uk-width-expand overlay-blend">
+			            		<span class="uk-label">Slice of Life</span>
+			            		<span class="uk-label">Romance</span>
+			            		<span class="uk-label">School Life</span>
+			            		<span class="uk-label">Sports</span>
+			            	</div>
+			            </div>
+			            <div class="uk-margin-medium-top" uk-grid>
+			            	<div class="uk-width-auto">
+			            		<h3>Links</h3>
+			            	</div>
+			            	<div class="uk-width-expand overlay-blend">
+			            		<a class="uk-label" href="#" target="_blank">Manga Updates</a>
+			            		<a class="uk-label" href="https://www.novelupdates.com/series/lemon-lightning/" target="_blank">Novel Updates</a>
+			            		<a class="uk-label" href="https://manga.bilibili.com/detail/mc29547" target="_blank">Manhua Raw</a>
+			            		<a class="uk-label" href="https://www.gongzicp.com/novel-215921.html" target="_blank">Novel Raw</a>
+			            	</div>
+			            </div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div id="deal-or-love"></div><div id="soul-vibration"></div><div id="lose-control"></div><div id="my-neighbour"></div>
+		<div class="content__section" data-bgcolor="rgba(69,28,70,1)" uk-height-viewport>
+			<h2 class="content__text uk-margin-medium-top">Other Series</h2>
+			<div class="content__main uk-margin-medium-top uk-child-width-1-1 uk-child-width-1-2@m uk-text-center" uk-grid="masonry: true">
+				<div>
+					<div class="uk-card uk-card-default uk-card-body">
+						<h3 class="uk-card-title">Deal or Love (2015)</h3>
+			            <p class="uk-text-meta chinese-chapter"><s>包养</s>初恋这件小事</p>
+			            <hr>
+			            <div class="uk-flex-middle" uk-grid>
+			            	<div class="uk-width-auto"><div class="uk-text-center uk-text-meta"><span uk-icon="icon: info; ratio: 1.5"></span></div></div>
+				            <div class="uk-width-expand uk-text-left">
+			            		<p class="uk-text-meta"><em>Deal or Love</em> is a novella that focuses on the lead vocal of <em>LOTUS</em> and his <s>sugar baby</s> crush. "Sugaring in writing, first love in actuality"</p>
+			            	</div>
+			            </div>
+			            <div class="uk-flex-middle" uk-grid>
+			            	<div class="uk-width-auto"><div class="uk-text-center card-icon uk-text-meta"><span uk-icon="icon: tag; ratio: 1.5"></span></div></div>
+				            <div class="uk-width-expand uk-text-left">
+			            		<a class="uk-button uk-button-default uk-button-small uk-margin-small-bottom" href="#">Drama</a>
+			            		<a class="uk-button uk-button-default uk-button-small uk-margin-small-bottom" href="#">Romance</a>
+			            		<a class="uk-button uk-button-default uk-button-small uk-margin-small-bottom" href="#">Music</a>
+			            		<a class="uk-button uk-button-default uk-button-small uk-margin-small-bottom" href="https://en.wikipedia.org/wiki/Show_business" target="_blank">Showbiz</a>
+			            	</div>
+		            	</div>
+					</div>
+				</div>
+				<div>
+					<div class="uk-card uk-card-default uk-card-body">
+						<h3 class="uk-card-title">Soul Vibration (2017)</h3>
+			            <p class="uk-text-meta chinese-chapter">灵魂骚动</p>
+			            <hr>
+			            <div class="uk-flex-middle" uk-grid>
+			            	<div class="uk-width-auto"><div class="uk-text-center uk-text-meta"><span uk-icon="icon: info; ratio: 1.5"></span></div></div>
+				            <div class="uk-width-expand uk-text-left">
+				            	<p class="uk-text-meta"><em>Soul Vibration</em> tells the daily lives of the members of <em>LOTUS</em>, a chart-topping rock band, told from the perspective of the Bassist's personal assistant. </p>
+
+				            	<p class="uk-text-meta">The novel is licensed in English by <a href="https://vialacteapublishing.carrd.co/#soul" target="_blank"><em>Via Lactea</em></a>. A manhua adaptation is coming in 2022 on Bilibili Comics.</p>
+				            </div>
+				        </div>
+			            <div class="uk-flex-middle" uk-grid>
+			            	<div class="uk-width-auto"><div class="uk-text-center card-icon uk-text-meta"><span uk-icon="icon: tag; ratio: 1.5"></span></div></div>
+				            <div class="uk-width-expand uk-text-left">
+			            		<a class="uk-button uk-button-default uk-button-small uk-margin-small-bottom" href="#">Slice of Life</a>
+			            		<a class="uk-button uk-button-default uk-button-small uk-margin-small-bottom" href="#">Slow Burn</a>
+			            		<a class="uk-button uk-button-default uk-button-small uk-margin-small-bottom" href="#">Drama</a>
+			            		<a class="uk-button uk-button-default uk-button-small uk-margin-small-bottom" href="#">Romance</a>
+			            		<a class="uk-button uk-button-default uk-button-small uk-margin-small-bottom" href="#">Music</a>
+			            		<a class="uk-button uk-button-default uk-button-small uk-margin-small-bottom" href="https://en.wikipedia.org/wiki/Underground_music" target="_blank">Bands</a>
+			            		<a class="uk-button uk-button-default uk-button-small uk-margin-small-bottom" href="#">Japan</a>
+			            		<a class="uk-button uk-button-default uk-button-small uk-margin-small-bottom" href="https://en.wikipedia.org/wiki/Show_business" target="_blank">Showbiz</a>
+			            	</div>
+		            	</div>
+			            <div class="uk-flex-middle" uk-grid>
+			            	<div class="uk-width-auto"><div class="uk-text-center card-icon uk-text-meta"><span uk-icon="icon: link; ratio: 1.5"></span></div></div>
+				            <div class="uk-width-expand uk-text-left">
+					            <a class="uk-button uk-button-default uk-button-small uk-margin-small-bottom" href="https://read.vialactea.ca/novels/695" target="_blank">Official English</a>
+					            <a class="uk-button uk-button-default uk-button-small uk-margin-small-bottom" href="https://www.gongzicp.com/novel-243488.html" target="_blank">Raw</a> 
+					        </div>
+					    </div>
+			        </div>
+				</div>
+				<div>
+					<div class="uk-card uk-card-default uk-card-body">
+						<h3 class="uk-card-title">Lose Control (2021)</h3>
+			            <p class="uk-text-meta chinese-chapter">完美失控</p>
+			            <hr>
+			            <div class="uk-flex-middle" uk-grid>
+			            	<div class="uk-width-auto"><div class="uk-text-center uk-text-meta"><span uk-icon="icon: info; ratio: 1.5"></span></div></div>
+				            <div class="uk-width-expand uk-text-left">
+				            	<p class="uk-text-meta"><em>Lose Control</em> is about the inner workings of the acting industry, with the shenanigans of an up-and-coming actor with an award-winning movie star.</p>
+				            </div>
+				        </div>
+			            <div class="uk-flex-middle" uk-grid>
+			            	<div class="uk-width-auto"><div class="uk-text-center card-icon uk-text-meta"><span uk-icon="icon: tag; ratio: 1.5"></span></div></div>
+				            <div class="uk-width-expand uk-text-left">
+			            		<a class="uk-button uk-button-default uk-button-small uk-margin-small-bottom" href="#">Drama</a>
+			            		<a class="uk-button uk-button-default uk-button-small uk-margin-small-bottom" href="#">Romance</a>
+			            		<a class="uk-button uk-button-default uk-button-small uk-margin-small-bottom" href="#">Movie</a>
+			            		<a class="uk-button uk-button-default uk-button-small uk-margin-small-bottom" href="#">Stage Play</a>
+			            		<a class="uk-button uk-button-default uk-button-small uk-margin-small-bottom" href="#">Acting</a>
+			            		<a class="uk-button uk-button-default uk-button-small uk-margin-small-bottom" href="https://en.wikipedia.org/wiki/Show_business" target="_blank">Showbiz</a>
+			            	</div>
+		            	</div>
+			            <div class="uk-flex-middle" uk-grid>
+			            	<div class="uk-width-auto"><div class="uk-text-center card-icon uk-text-meta"><span uk-icon="icon: link; ratio: 1.5"></span></div></div>
+				            <div class="uk-width-expand uk-text-left">
+					            <a class="uk-button uk-button-default uk-button-small uk-margin-small-bottom" href="https://www.gongzicp.com/novel-312586.html" target="_blank">Raw</a>
+					        </div>
+					    </div>
+					</div>
+				</div>
+				<div>
+					<div class="uk-card uk-card-default uk-card-body">
+						<h3 class="uk-card-title">My Neighbour Wen Xiaohua (2015)</h3>
+			            <p class="uk-text-meta chinese-chapter">竹马温小花</p>
+			            <hr>
+			            <div class="uk-flex-middle" uk-grid>
+			            	<div class="uk-width-auto"><div class="uk-text-center uk-text-meta"><span uk-icon="icon: info; ratio: 1.5"></span></div></div>
+				            <div class="uk-width-expand uk-text-left">
+				            	<p class="uk-text-meta"><em>My Neighbour Wen Xiaohua</em> is about a secret crush that panned out eventually.</p>
+				            </div>
+				        </div>
+			            <div class="uk-flex-middle" uk-grid>
+			            	<div class="uk-width-auto"><div class="uk-text-center card-icon uk-text-meta"><span uk-icon="icon: tag; ratio: 1.5"></span></div></div>
+				            <div class="uk-width-expand uk-text-left">
+			            		<a class="uk-button uk-button-default uk-button-small uk-margin-small-bottom" href="#">Romance</a>
+			            		<a class="uk-button uk-button-default uk-button-small uk-margin-small-bottom" href="#">Childhood Friends</a>
+			            		<a class="uk-button uk-button-default uk-button-small uk-margin-small-bottom" href="#">School Life</a>
+			            	</div>
+		            	</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="uk-position-bottom-right uk-margin uk-margin-right uk-position-fixed">
+	<a href="#" class="uk-icon-button overlay-blend" uk-totop uk-scroll></a>
+</div>
+<script type="text/javascript">
+{
+    class Entry {
+        constructor(el) {
+            this.DOM = {el: el};
+            this.DOM.image = this.DOM.el.querySelector('.content__img');
+            this.DOM.title = {word: this.DOM.el.querySelector('.content__text')};
+            charming(this.DOM.title.word);
+            this.DOM.title.letters = Array.from(this.DOM.title.word.querySelectorAll('span'));
+            this.DOM.title.letters.forEach(letter => letter.dataset.initial = letter.innerHTML);
+            this.lettersTotal = this.DOM.title.letters.length;
+            observer.observe(this.DOM.el);
+        }
+        enter(direction = 'down') {
+            this.entertime = setTimeout(()=> {
+                // this.DOM.title.word.style.opacity = 1;
+                // anime.remove(this.DOM.title.letters);
+                // anime({
+                //     targets: this.DOM.title.letters,
+                //     duration: 800,
+                //     delay: (target,index) => index*20,
+                //     easing: 'easeOutElastic',
+                //     translateY: [direction === 'down' ? '100%' : '-100%', '0%'],
+                //     opacity: {
+                //         value: [0,1],
+                //         duration: 300,
+                //         easing: 'linear'
+                //     }
+                // });
+
+                bodyEl.style.backgroundColor = this.DOM.el.dataset.bgcolor;
+            }, 150);
+        }
+        exit(direction = 'down') {
+            // anime.remove(this.DOM.title.letters);
+            // if ( this.entertime ) {
+            //     clearTimeout(this.entertime);
+            // }
+
+            // anime({
+            //     targets: this.DOM.title.letters,
+            //     duration: 250,
+            //     delay: (target,index) => index*20,
+            //     easing: 'easeOutExpo',
+            //     translateY: ['0%',direction === 'down' ? '-100%' : '100%'],
+            //     opacity: {
+            //         value: [1,0],
+            //         duration: 150,
+            //         easing: 'linear'
+            //     },
+            //     complete: () => this.DOM.title.word.style.opacity = 0
+            // });
+        }
+    }
+
+    let observer;
+    let current = -1;
+    let allentries = [];
+    const bodyEl = document.body;
+    const sections = Array.from(document.querySelectorAll('.content__section'));
+    // Preload all the images in the page..
+	imagesLoaded(document.querySelectorAll('.content__img'), () => {
+        document.body.classList.remove('loading');
+        if ('IntersectionObserver' in window) {
+            document.body.classList.add('ioapi');
+
+            observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if ( entry.intersectionRatio > 0.5 ) {
+                        const newcurrent = sections.indexOf(entry.target);
+                        if ( newcurrent === current ) return;
+                        const direction = newcurrent > current;
+                        if (current >= 0 ) {
+                            allentries[current].exit(direction ? 'down' : 'up');
+                        }
+                        allentries[newcurrent].enter(direction ? 'down' : 'up');
+                        current = newcurrent;
+                    }
+                });
+            }, { threshold: 0.5 });
+            
+            sections.forEach(section => allentries.push(new Entry(section)));
+        }
+    });
+}
+</script>
+</body>
+</html>
