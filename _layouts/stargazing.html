@@ -1,5 +1,6 @@
 ---
 layout: default
+comments: true
 ---
 
 <style type="text/css">
@@ -40,8 +41,10 @@ layout: default
         {% if page.next.url %}
         <a class="uk-float-right uk-button uk-button-default uk-margin overlay-blend" href="{{ page.next.url | prepend: site.baseurl | replace: '//', '/' }}">Next Chapter <span uk-icon="chevron-right"></span></a>
         {% endif %}
-
+        
         {% if page.comments %}
+        <div class="uk-text-center uk-margin uk-blend-overlay"><span uk-icon="icon: more; ratio: 2"></span></div>
+        
         <div id="disqus_thread"></div>
         <script>
             /**
@@ -49,7 +52,7 @@ layout: default
             *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
             
             var disqus_config = function () {
-            this.page.url = '{{ page.url }}';
+            this.page.url = '{{site.url}}{{page.url}}';
             this.page.identifier = '{{ page.id }}';
             };
             
