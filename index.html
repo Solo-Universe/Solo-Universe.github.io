@@ -1,9 +1,24 @@
+---
+layout: none
+---
 <!DOCTYPE html>
 <html>
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Solo Universe</title>
+	<title>Solo Universe by Dr.Solo</title>
+
+	<!-- Meta Descriptions -->
+	<meta property="og:type" content="website">
+	<meta property="og:url" content="https://Solo-Universe.github.io/">
+	<meta property="og:title" content="{% if page.title %}{{ series_name | escape }} - {{ page.title | escape }}{% else %}Solo Universe by Dr.Solo{% endif %}">
+	<meta property="og:description" content="A series of Danmei stories set in the same universe.">
+	<meta property="og:site_name" content="Solo Universe">
+	<meta property="og:image" content="https://Solo-Universe.github.io/assets/img/banner.jpg">
+	<meta name="theme-color" content="#314C5D">
+
+	<meta name="twitter:card" content="summary_large_image">
+	<link type="application/json+oembed" href="/oembed.json" />
 
 	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 	<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -417,7 +432,7 @@
 			            	</div>
 			            	<div class="uk-width-expand overlay-blend">
 			            		<a class="uk-label" href="#" target="_blank">Manga Updates</a>
-			            		<a class="uk-label" href="#" target="_blank">Novel Updates</a>
+			            		<a class="uk-label" href="https://www.novelupdates.com/series/stargazing-with-you/" target="_blank">Novel Updates</a>
 			            		<a class="uk-label" href="https://manga.bilibili.com/detail/mc30550" target="_blank">Manhua Raw</a>
 			            		<a class="uk-label" href="https://www.gongzicp.com/novel-243489.html" target="_blank">Novel Raw</a>
 			            	</div>
@@ -598,6 +613,16 @@
 		</div>
 	</div>
 </div>
+
+<footer class="uk-container uk-padding uk-light uk-text-center">
+	<div>
+		<hr class="uk-divider-icon">
+	</div>
+	<a class="" href="{{"/" | relative_url }}">
+		<div class="uk-margin-top">Dr.Solo <span uk-icon="icon: tiktok"></span> {{ 'now' | date: "%Y" }}</div>
+	</a>
+</footer>
+
 <div class="uk-position-bottom-right uk-margin uk-margin-right uk-position-fixed">
 	<a href="#" class="uk-icon-button overlay-blend" uk-totop uk-scroll></a>
 </div>
