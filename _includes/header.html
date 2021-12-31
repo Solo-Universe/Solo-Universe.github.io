@@ -3,7 +3,8 @@
 		<div class="uk-margin uk-margin-medium-top uk-light uk-text-center uk-blend-overlay">
 			<a href="{{"/" | relative_url }}"><h3 class="series-title uk-margin-remove">Solo Universe</h3></a>
 			{% if page.category == 'Stargazing-with-You' %}
-			<h1 class="stargazing-logo uk-margin-remove">stargazing_with_you</h1>
+			<h1 class="stargazing-logo uk-margin-remove uk-visible@s">stargazing_with_you</h1>
+			<h3 class="stargazing-logo uk-margin-remove uk-hidden@s">stargazing_with_you</h3>
 			{% elsif page.category == 'Lose-Control' %}
 			<h1 class="lose-control-logo uk-margin-remove">Lose Control</h1>
 			{% endif %}
