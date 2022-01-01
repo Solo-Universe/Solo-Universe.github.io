@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono&family=Lato:ital,wght@0,400;0,700;1,400&family=Lexend+Tera:wght@100..900&family=Merriweather:ital,wght@0,400;0,700;1,400;1,700&family=Rock+Salt&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono&family=Lato:ital,wght@0,400;0,700;1,400&family=Lexend+Tera:wght@100..900&family=Merriweather:ital,wght@0,400;0,700;1,400;1,700&family=Rock+Salt&family=Zhi+Mang+Xing&display=swap');
 
 html {
 	background: none;
@@ -92,7 +92,7 @@ a .series-title:hover {
 	font-family: 'Rock Salt', cursive;
 }
 
-.year-namecard {
+.chinese-namecard, .year-namecard {
 	font-family: 'Rock Salt', cursive;
 	color: lightgray!important;
 	opacity: 0.5;
@@ -100,6 +100,16 @@ a .series-title:hover {
 	margin-right: -10px;
 	z-index: -1;
 	mix-blend-mode: multiply;
+}
+
+.chinese-namecard {
+	font-family: 'Zhi Mang Xing', cursive;
+}
+
+.uk-card-secondary .uk-card-body .chinese-namecard {
+	opacity: 0.1;
+	margin-left: -10px;
+	mix-blend-mode: normal;
 }
 
 .chinese-chapter {
@@ -156,6 +166,10 @@ a .series-title:hover {
 	100% {
 		opacity: 0;
 	}
+}
+
+.lose-control-logo {
+	font-family: 'Rock Salt', cursive;
 }
 
 /* Chapter Page */
