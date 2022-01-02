@@ -287,6 +287,10 @@ a .series-title:hover {
 	transform:  scaleY(-1);
 }
 
+.novel-text p img {
+	margin: 20px 0;
+}
+
 .player-artist {
 	color: #666;
 	margin-top: -10px;
