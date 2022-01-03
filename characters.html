@@ -6,14 +6,22 @@ title: Characters
 	body {
 		background: linear-gradient(125deg, rgba(129, 25, 28, 1), rgba(69,28,70,1), rgba(49,76,93,1), rgba(89,115,129,1));
 	}
+
+	.uk-subnav {
+		/*font-family: 'JetBrains Mono', monospace;*/
+		font-family: 'Lato', sans-serif;
+	}
+
+	.uk-card-secondary.uk-card-body .uk-subnav-pill>.uk-active>a, .uk-card-secondary>:not([class*=uk-card-media]) .uk-subnav-pill>.uk-active>a {
+		mix-blend-mode: overlay;
+	}
 </style>
-<div class="uk-container">
+<div class="uk-container" uk-filter="target: .char-filter">
 	<div class="uk-flex uk-flex-center uk-grid" uk-grid>
 		<div>
 			<div class="uk-card uk-card-secondary uk-card-body no-background">
-				<!-- <h3 class="uk-card-title">About the Series</h3> -->
-	            <p>This page lists all the characters that have appeared in one or more of the series in <em>Solo Universe</em> by <a class="uk-link-text" href="https://www.gongzicp.com/zone/author-11489.html" target="_blank">Dr.Solo</a>.</p>
-	            <div class="uk-margin-large-top" uk-grid>
+				<p>This page lists all the characters that have appeared in one or more of the series in <em>Solo Universe</em> by <a class="uk-link-text" href="https://www.gongzicp.com/zone/author-11489.html" target="_blank">Dr.Solo</a>.</p>
+	            <!-- <div class="uk-margin-large-top" uk-grid>
 	            	<div class="uk-width-auto">
 	            		<h3>Tags</h3>
 	            	</div>
@@ -27,112 +35,101 @@ title: Characters
 	            		<span class="uk-label">Lemon Lightning (2020)</span>
 	            		<span class="uk-label">Lose Control (2021)</span>
 	            	</div>
+	            </div> -->
+	            
+	            <div class="uk-margin-large-top uk-grid-small uk-grid-divider uk-child-width-auto uk-flex uk-flex-center" uk-grid>
+	            	<div>
+	            		<ul class="uk-subnav uk-subnav-pill" uk-margin>
+	            			<li class="uk-active" uk-filter-control><a href="#">All</a></li>
+	            		</ul>
+	            	</div>
+	            	<div>
+	            		<ul class="uk-subnav uk-subnav-pill" uk-margin>
+	            			<li uk-filter-control="filter: [data-position*='west-wind']"><a href="#">West Wind</a></li>
+	            			<li uk-filter-control="filter: [data-position*='lotus']"><a href="#">Lotus</a></li>
+	            		</ul>
+	            	</div>
+	            	<div>
+	            		<ul class="uk-subnav uk-subnav-pill uk-flex-center" uk-margin>
+	            			{% assign series_data = site.data.series %}
+
+							{% for series_hash in series_data %}
+							{% assign series_list = series_hash[1] %}
+
+							{% for series in series_list.series %}
+	            			<li uk-filter-control="filter: [data-series*='{{series.slug}}']; group: data-series"><a href="#">{{series.title}}</a></li>
+	            			{% endfor %}
+	            			{% endfor %}
+	            		</ul>
+	            	</div>
+	            	<div>
+	            		<ul class="uk-subnav uk-subnav-pill" uk-margin>
+	            			<li uk-filter-control="filter: [data-position*='main']; group: data-position"><a href="#">Main</a></li>
+	            			<li uk-filter-control="filter: [data-position*='side']; group: data-position"><a href="#">Side</a></li>
+	            		</ul>
+	            	</div>
 	            </div>
 			</div>
 		</div>
 	</div>
 	<div class="uk-text-center uk-margin uk-blend-overlay"><span uk-icon="icon: more; ratio: 2"></span></div>
 
-	<div class="uk-child-width-1-1 uk-child-width-1-2@m" uk-grid="masonry: true">
-		<div>
-			<div class="uk-card uk-card-default uk-grid-collapse uk-border-rounded uk-child-width-1-2@s uk-margin uk-overflow-hidden" uk-grid>
-			    <div class="uk-card-media-left uk-cover-container">
-			        <img src="/assets/img/char/fu-cuo.jpg" alt="" uk-cover>
-			        <canvas width="400" height="400"></canvas>
-			    </div>
-			    <div>
-			        <div class="uk-card-body">
-			            <h1 class="chinese-namecard uk-heading-medium uk-text-right">傅错</h1>
-			            <h3 class="uk-card-title uk-text-left">Fu Cuo</h3>
-			            <p>Avid songwriter, guitarist, and leader of West Wind</p>
-			            <span class="uk-label">Gone with the Wind (2018)</span>
-			        </div>
-			    </div>
-			</div>
-		</div>
-		<div>
-			<div class="uk-card uk-card-secondary uk-border-rounded uk-grid-collapse uk-child-width-1-2@s uk-margin uk-overflow-hidden" uk-grid>
-			    <div class="uk-flex-last@s uk-card-media-right uk-cover-container">
-			        <img src="/assets/img/char/sui-qingchi.jpg" alt="" uk-cover>
-			        <canvas width="400" height="400"></canvas>
-			    </div>
-			    <div>
-			        <div class="uk-card-body">
-			            <h1 class="chinese-namecard uk-heading-medium uk-text-left">隋轻驰</h1>
-			            <h3 class="uk-card-title uk-text-right">Sui Qingchi</h3>
-			            <p>Former Vocal of West Wind, dubbed Chūni King by many</p>
-			            <span class="uk-label">Gone with the Wind (2018)</span>
-	            		<span class="uk-label">Lose Control (2021)</span>
-			        </div>
-			    </div>
-			</div>
-		</div>
+	<div class="char-filter uk-child-width-1-1 uk-child-width-1-2@m" uk-grid="masonry: true">
+		{% assign characters = site.data.characters %}
 
-		<div>
-			<div class="uk-card uk-card-secondary uk-border-rounded uk-grid-collapse uk-child-width-1-2@s uk-margin uk-overflow-hidden" uk-grid>
-			    <div class="uk-flex-last@s uk-card-media-right uk-cover-container">
-			        <img src="/assets/img/char/ak.jpg" alt="" uk-cover>
-			        <canvas width="400" height="400"></canvas>
-			    </div>
-			    <div>
-			        <div class="uk-card-body">
-			            <h1 class="chinese-namecard uk-heading-medium uk-text-left">⠀</h1>
-			            <h3 class="uk-card-title">AK</h3>
-			            <p>Former Drummer of West Wind, longtime friend of Fu Cuo</p>
-			            <span class="uk-label">Gone with the Wind (2018)</span>
-			        </div>
-			    </div>
-			</div>
-		</div>
-		<div>
-			<div class="uk-card uk-card-default uk-grid-collapse uk-border-rounded uk-child-width-1-2@s uk-margin uk-overflow-hidden" uk-grid>
-			    <div class="uk-card-media-left uk-cover-container">
-			        <img src="/assets/img/char/zhongdao.jpg" alt="" uk-cover>
-			        <canvas width="400" height="400"></canvas>
-			    </div>
-			    <div>
-			        <div class="uk-card-body">
-			            <h1 class="chinese-namecard uk-heading-medium uk-text-right">钟岛</h1>
-			            <h3 class="uk-card-title uk-text-left">Zhong Dao</h3>
-			            <p>Aspiring singer, Fu Cuo's disciple. Sui Qingchi look-alike</p>
-			            <span class="uk-label">Gone with the Wind (2018)</span>
-			        </div>
-			    </div>
-			</div>
-		</div>
+		{% for char_hash in characters %}
+		{% assign char_list = char_hash[1] %}
 
-		<div>
+		{% for character in char_list.chars %}
+		{% assign series_list = character.series | split: ", " %}
+		{% assign position_list = character.position | split: ", " %}
+
+		{% if character.status == 0 %}
+		<div id="{{character.slug}}" data-series="{% for series_name in series_list %}{{series_name}} {% endfor %}" data-position="{% for position_name in position_list %}{{position_name}} {% endfor %}">
 			<div class="uk-card uk-card-default uk-grid-collapse uk-border-rounded uk-child-width-1-2@s uk-margin uk-overflow-hidden" uk-grid>
+				{% if character.slug %}
 			    <div class="uk-card-media-left uk-cover-container">
-			        <img src="/assets/img/char/tao-ke.jpg" alt="" uk-cover>
+			        <img src="/assets/img/char/{{ character.slug }}.jpg" alt="" uk-cover>
 			        <canvas width="400" height="400"></canvas>
 			    </div>
+			    {% endif %}
 			    <div>
 			        <div class="uk-card-body">
-			            <h1 class="chinese-namecard uk-heading-medium uk-text-right">姚可</h1>
-			            <h3 class="uk-card-title uk-text-left">Tao Ke</h3>
-			            <p>Fu Cuo's business partner and owner of the bar</p>
-			            <span class="uk-label">Gone with the Wind (2018)</span>
+			            <h1 class="chinese-namecard uk-heading-medium uk-text-right">{{character.chinese}}</h1>
+			            <h3 class="uk-card-title uk-text-left">{{character.name}}</h3>
+			            <p>{{character.description}}</p>
+			            {% for series_name in series_list %}
+			            <a class="uk-button uk-button-default uk-button-small uk-margin-small-bottom" href="#">{{series_name}}</a>
+			            {% endfor %}
 			        </div>
 			    </div>
 			</div>
 		</div>
-		<div>
+		{% endif %}
+		{% if character.status == 1 %}
+		<div id="{{character.slug}}" data-series="{% for series_name in series_list %}{{series_name}} {% endfor %}" data-position="{% for position_name in position_list %}{{position_name}} {% endfor %}">
 			<div class="uk-card uk-card-secondary uk-border-rounded uk-grid-collapse uk-child-width-1-2@s uk-margin uk-overflow-hidden" uk-grid>
+			    {% if character.slug %}
 			    <div class="uk-flex-last@s uk-card-media-right uk-cover-container">
-			        <img src="/assets/img/char/liu-mei.jpg" alt="" uk-cover>
+			        <img src="/assets/img/char/{{ character.slug }}.jpg" alt="" uk-cover>
 			        <canvas width="400" height="400"></canvas>
 			    </div>
+			    {% endif %}
 			    <div>
 			        <div class="uk-card-body">
-			            <h1 class="chinese-namecard uk-heading-medium uk-text-left">柳眉</h1>
-			            <h3 class="uk-card-title uk-text-right">Liu Mei</h3>
-			            <p class="uk-padding-small uk-padding-remove-horizontal">Sui Qingchi's Agent</p>
-			            <span class="uk-label">Gone with the Wind (2018)</span>
+			            <h1 class="chinese-namecard uk-heading-medium uk-text-left">{{character.chinese}}</h1>
+			            <h3 class="uk-card-title uk-text-right">{{character.name}}</h3>
+			            <p>{{character.description}}</p>
+			            {% for series_name in series_list %}
+			            <a class="uk-button uk-button-default uk-button-small uk-margin-small-bottom" href="#">{{series_name}}</a>
+			            {% endfor %}
 			        </div>
 			    </div>
 			</div>
 		</div>
+		{% endif %}
+		{% endfor %}
+		{% endfor %}
 		<!-- <div>
 			<div class="uk-card uk-card-secondary uk-border-rounded uk-grid-collapse uk-child-width-1-2@s uk-margin uk-overflow-hidden" uk-grid>
 			    <div>

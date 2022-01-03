@@ -1,0 +1,101 @@
+title: Characters
+description: This list includes all major and minor characters that appeared in any Solo Universe series.
+chars:
+  # Gone with the Wind
+  - name: Fu Cuo
+    chinese: 傅错
+    description: Avid songwriter, guitarist, and leader of West Wind
+    series: gone-with-the-wind
+    position: main, west-wind
+    status: 0
+    slug: fu-cuo
+
+  - name: Sui Qingchi
+    chinese: 隋轻驰
+    description: Former Vocal of West Wind, suffers from Chūnibyō
+    series: gone-with-the-wind, lose-control
+    position: main, west-wind
+    status: 1
+    slug: sui-qingchi
+
+  - name: AK
+    chinese: AK
+    description: Former Drummer of West Wind, longtime friend of Fu Cuo
+    series: gone-with-the-wind
+    position: side, west-wind
+    status: 0
+    slug: ak
+
+  - name: Zhong Dao
+    chinese: 钟岛
+    description: Aspiring singer, Fu Cuo's disciple. Sui Qingchi look-alike
+    series: gone-with-the-wind
+    position: side
+    status: 1
+    slug: zhong-dao
+
+  - name: Tan Si
+    chinese: 谭思
+    description: Former Bassist of West Wind, longtime friend of Fu Cuo
+    series: gone-with-the-wind
+    position: side, west-wind
+    status: 0
+    slug: tan-si
+
+  - name: Liu Mei
+    chinese: 柳眉
+    description: Sui Qingchi's Agent
+    series: gone-with-the-wind
+    position: side
+    status: 1
+    slug: liu-mei
+
+  - name: Tao Ke
+    chinese: 姚可
+    description: Fu Cuo's business partner and owner of the bar
+    series: gone-with-the-wind
+    position: side
+    status: 0
+    slug: tao-ke
+
+  - name: Wang Xiaoou
+    chinese: 汪小鸥
+    description: Sui Qingchi's personal assistant
+    series: gone-with-the-wind
+    position: side
+    status: 1
+    slug: wang-xiaoou
+
+  # Stargazing with You
+  - name: Jiang He
+    chinese: 姜赫
+    description: Childhood friends with Bai Ying
+    series: stargazing-with-you
+    position: main
+    status: 0
+    slug: jiang-he
+
+  - name: Bai Ying
+    chinese: 白瑛
+    description: Genius white hat hacker, master of all except singing
+    series: stargazing-with-you
+    position: main
+    status: 1
+    slug: bai-ying
+
+  # Soul Vibration
+  - name: Chi Nan
+    chinese: 迟南
+    description: Legally deaf, personal assistant of Salinger
+    series: soul-vibration
+    position: main
+    status: 0
+    slug: chi-nan
+
+  - name: Salinger
+    chinese: 塞林格
+    description: Bassist of LOTUS, real name is Lin Sai (林赛)
+    series: soul-vibration, gone-with-the-wind, lose-control
+    position: main, lotus
+    status: 1
+    slug: salinger
