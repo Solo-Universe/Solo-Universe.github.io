@@ -51,13 +51,13 @@ chars:
     status: 1
     slug: liu-mei
 
-  - name: Tao Ke
+  - name: Yao Ke
     chinese: 姚可
     description: Fu Cuo's business partner and owner of the bar
     series: gone-with-the-wind
     position: side
     status: 0
-    slug: tao-ke
+    slug: yao-ke
 
   - name: Wang Xiaoou
     chinese: 汪小鸥

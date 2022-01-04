@@ -1,0 +1,48 @@
+---
+layout: default
+comments: true
+---
+
+<style type="text/css">
+  body {
+    background: linear-gradient(125deg, rgba(129, 25, 28, 1), rgba(69,28,70,1), rgba(49,76,93,1), rgba(89,115,129,1));
+  }
+</style>
+
+{% assign chapter_number = page.title | remove: 'Chapter ' %}
+
+<div class="uk-container uk-margin-medium-top">
+  <div class="uk-flex uk-flex-center uk-grid overlay-blend">
+    <div class="uk-flex-center uk-flex-middle uk-grid-divider uk-light" uk-grid>
+      <div class="uk-text-right">
+        <h1 class="chapter-number">TRACK{{ chapter_number | prepend: '000' | slice: -3, 3 }}</h1>
+        <div class="chapter-info uk-text-meta">{% include read_time.html content=page.content %}</div>
+      </div>
+      <div>
+        <ul class="chapter-info uk-list uk-list-square uk-text-meta">
+          <li class=""><b>TL:</b> {{ page.author }}</li>
+          <li class=""><b>PR:</b> {{ page.editor }}</li>
+          <li class=""><b>{{ page.date | date: '%B %d, %Y' }}</b></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="uk-grid" uk-grid>
+    <div class="uk-width-1-5 uk-visible@m"></div>
+    <div class="uk-width-1-1 uk-width-3-5@m">
+      <div class="uk-light novel-text">
+
+        {{ content }}
+
+        {% include category_nav.html %}
+
+        {% include comments.html %}
+
+      </div>
+    </div>
+
+    <div class="uk-width-1-5 uk-visible@m"></div>
+  </div>
+</div>
+
+{% include char_modal.html %}
