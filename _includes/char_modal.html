@@ -1,0 +1,45 @@
+<style type="text/css">
+.uk-modal {
+    -webkit-backdrop-filter: blur(3px);
+    backdrop-filter: blur(3px);
+}
+
+.char-name {
+    font-family: 'Rock Salt', cursive;
+}
+</style>
+
+{% assign characters = site.data.characters -%}
+
+{% for char_hash in characters -%}
+{% assign char_list = char_hash[1] -%}
+{% assign series_slug = page.category | downcase | replace: " ", "-" -%}
+
+{% for character in char_list.chars -%}
+{% assign series_list = character.series | split: ", " -%}
+{% assign position_list = character.position | split: ", " -%}
+{% if character.series contains series_slug -%}
+
+{% if character.slug -%}
+    {% assign char_slug = character.slug -%}
+{% else -%}
+    {% assign char_slug = character.name | replace: " ", "-" | downcase -%}
+{% endif -%}
+<div id="{{char_slug}}" class="uk-flex-top" uk-modal>
+    <div class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical uk-padding-remove">
+        <button class="uk-modal-close-default" type="button" uk-close></button>
+        <div class="uk-grid-collapse uk-child-width-1-2@s uk-flex-middle" uk-grid>
+            {% if character.image != 0 -%}
+            <div class="uk-background-cover uk-height-medium" style="background-image: url('/assets/img/char/{{character.slug}}.jpg');"></div>
+            {% endif -%}
+            <div class="uk-padding">
+                <h3>{{character.name}}</h3>
+                <p class="uk-text-meta uk-text-left chinese-chapter">{{character.chinese}}</p>
+                <p>{{character.description}}</p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endif -%}
+{% endfor -%}
+{% endfor -%}

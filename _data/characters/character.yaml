@@ -12,7 +12,7 @@ chars:
 
   - name: Sui Qingchi
     chinese: 隋轻驰
-    description: Former Vocal of West Wind, suffers from Chūnibyō
+    description: "\"Chūnibyō King\", Former Vocal of West Wind"
     series: gone-with-the-wind, lose-control
     position: main, west-wind
     status: 1
@@ -20,7 +20,7 @@ chars:
 
   - name: AK
     chinese: AK
-    description: Former Drummer of West Wind, longtime friend of Fu Cuo
+    description: Drummer of West Wind, longtime friend of Fu Cuo
     series: gone-with-the-wind
     position: side, west-wind
     status: 0
@@ -36,7 +36,7 @@ chars:
 
   - name: Tan Si
     chinese: 谭思
-    description: Former Bassist of West Wind, longtime friend of Fu Cuo
+    description: Bassist of West Wind, longtime friend of Fu Cuo
     series: gone-with-the-wind
     position: side, west-wind
     status: 0
@@ -69,7 +69,7 @@ chars:
   # Stargazing with You
   - name: Jiang He
     chinese: 姜赫
-    description: Childhood friends with Bai Ying
+    description: Male, twenty, 1.81m. Childhood friends with Bai Ying
     series: stargazing-with-you
     position: main
     status: 0
@@ -94,8 +94,65 @@ chars:
 
   - name: Salinger
     chinese: 塞林格
-    description: Bassist of LOTUS, real name is Lin Sai (林赛)
-    series: soul-vibration, gone-with-the-wind, lose-control
+    description: Bassist of LOTUS, real name is Lin Sai
+    detail: Real name is Lin Sai 林赛. Nicknamed Handsome Sai by teammates.
+    series: soul-vibration, deal-or-love, gone-with-the-wind, lose-control
     position: main, lotus
     status: 1
     slug: salinger
+
+  - name: Alan
+    chinese: 阿岚
+    description: Drummer of LOTUS 
+    series: soul-vibration
+    position: side, lotus
+    status: 0
+    image: 0
+    slug: alan
+
+  - name: Shi Tou
+    chinese: 石头哥
+    description: Composer and Guitarist of LOTUS
+    detail: Shi Tou is his stage name, means stone in Chinese.
+    series: soul-vibration
+    position: side, lotus
+    status: 1
+    image: 0
+    slug: shi-tou
+
+  - name: Xiao Tong
+    chinese: 肖瞳
+    description: An idol, Sugar Baby of Ji Shi
+    series: deal-or-love
+    position: main
+    status: 0
+    image: 0
+    slug: xiao-tong
+
+  - name: Ji Shi
+    chinese: 季诗
+    description: Lead vocal and leader of LOTUS 
+    series: deal-or-love, soul-vibration
+    position: main, lotus
+    status: 1
+    image: 0
+    slug: ji-shi
+
+  # Lose Control
+  - name: Sheng Ye
+    chinese: 盛野
+    description: Tan Zhen's biggest fan, Winner of Best New Actor
+    series: lose-control
+    position: main
+    status: 0
+    image: 0
+    slug: sheng-ye
+
+  - name: Tan Zhen
+    chinese: 谭阵
+    description: "\"Sullen Prince\", Winner of Best Actor"
+    series: lose-control, soul-vibration
+    position: main
+    status: 1
+    image: 0
+    slug: tan-zhen
