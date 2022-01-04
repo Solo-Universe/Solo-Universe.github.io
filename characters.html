@@ -15,23 +15,6 @@ title: Characters
 	.uk-card-secondary.uk-card-body .uk-subnav-pill>.uk-active>a, .uk-card-secondary>:not([class*=uk-card-media]) .uk-subnav-pill>.uk-active>a {
 		mix-blend-mode: overlay;
 	}
-
-	.uk-card-secondary>:not([class*=uk-card-media]) .uk-label, .uk-label {
-		/*background-color: transparent;*/
-		/*color: #666;*/
-	}
-
-	.uk-label-warning {
-		background-color: transparent!important;
-	}
-
-	.uk-button-primary, .uk-label-success {
-		background-color: #222;
-	}
-
-	.uk-label-success {
-		margin-bottom: 5px;
-	}
 </style>
 <div class="uk-container" uk-filter="target: .char-filter">
 	<div class="uk-flex uk-flex-center uk-grid" uk-grid>
@@ -101,10 +84,10 @@ title: Characters
 	            <p>{{character.description}}</p>
 	            {% for series_name in series_list -%}
 	            {% if series_name == series_list.first -%}
-	            <a class="uk-button uk-button-primary uk-button-small uk-margin-small-bottom" href="#">{{series_name}}</a>
+	            <a class="uk-button uk-button-primary uk-button-small uk-margin-small-bottom" href="#">{{series_name | replace: "-", " "}}</a>
 	            {% continue -%}
 	            {% endif -%}
-	            <a class="uk-button uk-button-default uk-button-small uk-margin-small-bottom" href="#">{{series_name}}</a>
+	            <a class="uk-button uk-button-default uk-button-small uk-margin-small-bottom" href="#">{{series_name | replace: "-", " "}}</a>
 	            {% endfor -%}
 			</div>
 		</div>
@@ -125,12 +108,10 @@ title: Characters
 			            <p>{{character.description}}</p>
 			            {% for series_name in series_list -%}
 			            {% if series_name == series_list.first -%}
-			            <span class="uk-label uk-label-success">{{series_name}}</span>
-			            <!-- <a class="uk-button uk-button-primary uk-button-small uk-margin-small-bottom" href="#">{{series_name}}</a> -->
+			            <span class="uk-label uk-label-success">{{series_name | replace: "-", " "}}</span>
 			            {% continue -%}
 			            {% endif -%}
-			            <span class="uk-label uk-label-warning">{{series_name}}</span>
-			            <!-- <a class="uk-button uk-button-default uk-button-small uk-margin-small-bottom" href="#">{{series_name}}</a> -->
+			            <span class="uk-label uk-label-warning">{{series_name | replace: "-", " "}}</span>
 			            {% endfor -%}
 			        </div>
 			    </div>
@@ -151,12 +132,10 @@ title: Characters
 			            <p>{{character.description}}</p>
 			            {% for series_name in series_list -%}
 			            {% if series_name == series_list.first -%}
-			            <span class="uk-label uk-label-success">{{series_name}}</span>
-			            <!-- <a class="uk-button uk-button-primary uk-button-small uk-margin-small-bottom" href="#">{{series_name}}</a> -->
+			            <span class="uk-label uk-label-success">{{series_name | replace: "-", " "}}</span>
 			            {% continue -%}
 			            {% endif -%}
-			            <span class="uk-label uk-label-warning">{{series_name}}</span>
-			            <!-- <a class="uk-button uk-button-default uk-button-small uk-margin-small-bottom" href="#">{{series_name}}</a> -->
+			            <span class="uk-label uk-label-warning">{{series_name | replace: "-", " "}}</span>
 			            {% endfor -%}
 			        </div>
 			    </div>

@@ -16,12 +16,12 @@
 
 <div class="uk-grid uk-child-width-expand uk-margin-medium-top" uk-grid>
 <div>{% if previous_post.url %}
-<a class="uk-float-left uk-button uk-button-default uk-margin overlay-blend" href="{{ previous_post.url | prepend: site.baseurl | replace: '//', '/' }}"><span uk-icon="chevron-left"></span><span class="uk-visible@m"> Prev Chapter</span></a>
+<a class="uk-float-left uk-button uk-button-default uk-margin overlay-blend" href="{{ previous_post.url | prepend: site.baseurl | replace: '//', '/' }}"><span uk-icon="chevron-left"></span><span class="uk-visible@s uk-hidden@l"> Prev</span><span class="uk-visible@l"> Prev Chapter</span></a>
 {% endif %}</div>
 {% if page.raw %}
-<div class="uk-text-center"><a class="uk-button uk-button-default uk-margin overlay-blend" href="{{ page.raw }}"><span uk-icon="bookmark"></span><span class="uk-visible@m"> RAW Chapter</span></a></div>
+<div class="uk-text-center"><a class="uk-button uk-button-default uk-margin overlay-blend" href="{{ page.raw }}"><span uk-icon="bookmark"></span><span class="uk-visible@s uk-hidden@l"> RAW</span><span class="uk-visible@l"> RAW Chapter</span></a></div>
 {% endif %}
 <div>{% if next_post.url %}
-<a class="uk-float-right uk-button uk-button-default uk-margin overlay-blend" href="{{ next_post.url | prepend: site.baseurl | replace: '//', '/' }}"><span class="uk-visible@m">Next Chapter </span><span uk-icon="chevron-right"></span></a>
+<a class="uk-float-right uk-button uk-button-default uk-margin overlay-blend" href="{{ next_post.url | prepend: site.baseurl | replace: '//', '/' }}"><span class="uk-visible@s uk-hidden@l">Next </span><span class="uk-visible@l">Next Chapter </span><span uk-icon="chevron-right"></span></a>
 {% endif %}</div>
 </div>

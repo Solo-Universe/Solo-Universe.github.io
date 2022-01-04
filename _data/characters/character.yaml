@@ -12,6 +12,7 @@ chars:
 
   - name: Sui Qingchi
     chinese: 隋轻驰
+    birthday: 11/22
     description: "\"Chūnibyō King\", Former Vocal of West Wind"
     series: gone-with-the-wind, lose-control
     position: main, west-wind
@@ -156,3 +157,30 @@ chars:
     status: 1
     image: 0
     slug: tan-zhen
+
+  - name: Chen Bohan
+    chinese: 陈博涵
+    description: "Tan Zhen's Agent"
+    series: lose-control
+    position: side
+    status: 1
+    image: 0
+    slug: chen-bohan
+
+  - name: Jie Pingan
+    chinese: 介平安
+    description: "Award-winning Director, friends with Sheng Ye's father"
+    series: lose-control
+    position: side
+    status: 1
+    image: 0
+    slug: jie-pingan
+
+  - name: Gong Lu
+    chinese: 巩璐
+    description: "Female lead and co-stars with Sheng Ye and Tan Zhen on \"Stable Structure\""
+    series: lose-control
+    position: side
+    status: 1
+    image: 0
+    slug: gong-lu

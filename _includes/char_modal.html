@@ -28,14 +28,25 @@
 <div id="{{char_slug}}" class="uk-flex-top" uk-modal>
     <div class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical uk-padding-remove">
         <button class="uk-modal-close-default" type="button" uk-close></button>
-        <div class="uk-grid-collapse uk-child-width-1-2@s uk-flex-middle" uk-grid>
-            {% if character.image != 0 -%}
-            <div class="uk-background-cover uk-height-medium" style="background-image: url('/assets/img/char/{{character.slug}}.jpg');"></div>
+        <div class="uk-grid-collapse uk-child-width-1-2@s uk-flex-center uk-flex-middle" uk-height-match="target: > div" uk-grid>
+            {% if character.image -%}
+            <div class="uk-background-cover uk-height-max-large uk-flex uk-flex-center uk-flex-middle" style="background: linear-gradient(125deg, rgba(129, 25, 28, 1), rgba(69,28,70,1), rgba(49,76,93,1));">
+                <span class="uk-blend-overlay" uk-icon="icon: tiktok; ratio: 10"></span>
+            </div>
+            {% else -%}
+            <div class="uk-background-cover uk-height-max-large" style="background-image: url('/assets/img/char/{{character.slug}}.jpg');"></div>
             {% endif -%}
             <div class="uk-padding">
                 <h3>{{character.name}}</h3>
                 <p class="uk-text-meta uk-text-left chinese-chapter">{{character.chinese}}</p>
                 <p>{{character.description}}</p>
+                {% for series_name in series_list -%}
+                {% if series_name == series_list.first -%}
+                <span class="uk-label uk-label-success">{{series_name | replace: "-", " "}}</span>
+                {% continue -%}
+                {% endif -%}
+                <span class="uk-label uk-label-warning">{{series_name | replace: "-", " "}}</span>
+                {% endfor -%}
             </div>
         </div>
     </div>

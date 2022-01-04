@@ -300,3 +300,17 @@ a .series-title:hover {
 	color: #f0506e;
 	text-decoration: none;
 }
+
+/* Character Modal */
+.uk-label-warning {
+	background-color: transparent!important;
+	color: #222;
+}
+
+.uk-button-primary, .uk-label-success {
+	background-color: #222;
+}
+
+.uk-label-success {
+	margin-bottom: 5px;
+}
