@@ -1,0 +1,30 @@
+---
+layout: null
+---
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0">
+<channel>
+ <title>{{ site.title }}</title>
+ <description>{{ site.description }}</description>
+ <link>{{ site.url }}</link>
+ <lastBuildDate>{{ site.time | date_to_rfc822 }}</lastBuildDate>
+ <pubDate>{{ site.time | date_to_rfc822 }}</pubDate>
+ <ttl>1800</ttl>
+
+{% assign series_data = site.data.series -%}
+{% for series_hash in series_data -%}
+{% assign series_list = series_hash[1] -%}
+{% endfor -%}
+{% for post in site.posts -%}
+{% assign series_slug = post.category | downcase -%}
+ <item>
+  <title>{{ post.category | replace: "-", " " }} {{ post.title }}</title>
+  <description>{% for series in series_list.series %}{% if series.slug == series_slug %}{{series.description}}{% break %}{% endif %}{% endfor %} Translation by {{ post.author }}</description>
+  <link>{{ post.url }}</link>
+  <guid isPermaLink="true">{{ site.url }}{{ post.url }}</guid>
+  <pubDate>{{ post.date | date_to_rfc822 }}</pubDate>
+ </item>
+{% endfor -%}
+
+</channel>
+</rss>

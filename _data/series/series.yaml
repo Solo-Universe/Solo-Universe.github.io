@@ -1,37 +1,37 @@
 title: Series
 description: This list includes all series in the Solo Universe.
 series:
-  # - title: Deal or Love
-  #   chinese: 初恋这件小事
-  #   description: 
-  #   year: 2015
-  #   link: 
-  #   slug: deal-or-love
+  - title: Deal or Love
+    chinese: 初恋这件小事
+    description: Deal or Love is a romance between the lead vocal of a rock band and a fresh idol from a newly formed idol group.
+    year: 2015
+    link: 
+    slug: deal-or-love
 
   - title: Soul Vibration
     chinese: 灵魂骚动
-    description: 
+    description: Soul Vibration shows the daily lives of a chart-topping rock band, as told by the bassist's personal assistant.
     year: 2017
     link: 
     slug: soul-vibration
 
   - title: Stargazing with You
     chinese: 陪你一起看星星
-    description: 
+    description: Also known as Samoyed and Husky, it is a slice of life romance that revolves around a pair of childhood friends. It also touches on cybersecurity and white hat hackers.
     year: 2018
     link: 
     slug: stargazing-with-you
 
   - title: Gone with the Wind
     chinese: 轻错
-    description: 
+    description: Gone with the Wind is a music band romance that tells the meteoric rise and eventual fallout of a vocal-guitar duo of an underground rock band.
     year: 2018
     link: 
     slug: gone-with-the-wind
 
   - title: Lose Control
     chinese: 完美失控
-    description: 
+    description: Lose Control is a showbiz romance that depicts the inner workings of the acting industry, focusing on a newcomer actor and an award-winning actor.
     year: 2021
     link: 
     slug: lose-control
