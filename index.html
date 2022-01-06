@@ -192,6 +192,31 @@ layout: none
 		.card-icon {
 			margin-top: -10px;
 		}
+
+		@keyframes float {
+			0% {
+				/*box-shadow: 0 5px 15px 0px rgba(0,0,0,0.6);*/
+				transform: translatey(0px);
+			}
+			50% {
+				/*box-shadow: 0 25px 15px 0px rgba(0,0,0,0.2);*/
+				transform: translatey(-20px);
+			}
+			100% {
+				/*box-shadow: 0 5px 15px 0px rgba(0,0,0,0.6);*/
+				transform: translatey(0px);
+			}
+		}
+
+		#bg-icons div {
+			animation: float 6s ease-in-out infinite;
+		}
+
+		#bg-icons div:nth-child(2) {animation-delay: .3s}
+		#bg-icons div:nth-child(3) {animation-delay: .6s}
+		#bg-icons div:nth-child(4) {animation-delay: .9s}
+		#bg-icons div:nth-child(5) {animation-delay: 1.2s}
+		#bg-icons div:nth-child(6) {animation-delay: 1.5s}
 	</style>
 </head>
 <body>
@@ -199,8 +224,8 @@ layout: none
 	<!-- Icons -->
 	<div id="bg-icons" class="uk-position-absolute uk-inline uk-width-expand overlay-blend" uk-height-viewport>
 		<!-- Fencing -->
-		<div class="uk-position-large uk-position-top-left" style="transform: rotate(15deg)">
-			<svg width="144" height="144" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" data-reactroot="" class="uk-animation-stroke" style="--uk-animation-stroke: 46;" uk-parallax="rotate: 30">
+		<div class="uk-position-large uk-position-top-left">
+			<svg width="144" height="144" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" data-reactroot="" class="uk-animation-stroke" style="--uk-animation-stroke: 46;" uk-parallax="rotate: 15,30">
 			<path stroke-linejoin="round" stroke-linecap="round" stroke-width="0.5" stroke="#fff" d="M3 3L15.95 15.95"></path>
 			<path stroke-linejoin="round" stroke-linecap="round" stroke-width="0.5" stroke="#fff" d="M21 20L19 18L18 19L20 21L21 20Z"></path>
 			<path stroke-linejoin="round" stroke-linecap="round" stroke-width="0.5" stroke="#fff" fill="none" d="M15.9769 15.9768C14.4699 17.4838 14.8962 19.9194 15.9768 21L21 15.9768C19.9194 14.8962 17.4837 14.4699 15.9769 15.9768Z"></path>
@@ -210,8 +235,8 @@ layout: none
 			</svg>
 		</div>
 		<!-- Movie -->
-		<div class="uk-position-large uk-position-bottom-left" style="transform: rotate(-25deg)">
-			<svg width="256" height="256" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" data-reactroot="" class="uk-animation-stroke" style="--uk-animation-stroke: 70;" uk-parallax="target: #bg-icons; y: 100,0; rotate: -180; blur: 5,1; scale: 1,1.5">
+		<div class="uk-position-large uk-position-bottom-left">
+			<svg width="256" height="256" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" data-reactroot="" class="uk-animation-stroke" style="--uk-animation-stroke: 70;" uk-parallax="target: #bg-icons; y: 100,0; rotate: -25,-180; blur: 5,1; scale: 1,1.5">
 			<path stroke-width="0.2" stroke="#ffffff" fill="none" d="M2 11H22V21H2V11Z"></path>
 			<path stroke-width="0.2" stroke="#ffffff" fill="none" d="M2 7.57143L22 3V6.5L2 11V7.57143Z"></path>
 			<path stroke-width="0.2" stroke="#ffffff" d="M2 14H22"></path>
