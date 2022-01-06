@@ -171,7 +171,7 @@ layout: none
 
 		.bg-gradient {
 			/*background: linear-gradient(125deg, rgba(129,25,28,0.5), rgba(69,28,70,0.5), rgba(49,76,93,0.5), rgba(89,115,129,0.5));*/
-			background: linear-gradient(125deg, rgba(129,25,28,0.5), rgba(89,115,129,0.5));
+			/*background: linear-gradient(125deg, rgba(129,25,28,0.5), rgba(89,115,129,0.5));*/
 			position: fixed;
 			width: 100%;
 			height: 100%;
@@ -196,7 +196,50 @@ layout: none
 </head>
 <body>
 <div class="content">
-	<!-- <div class="bg-gradient" uk-height-viewport></div> -->
+	<!-- Icons -->
+	<div id="bg-icons" class="uk-position-absolute uk-inline uk-width-expand overlay-blend" uk-height-viewport>
+		<!-- Fencing -->
+		<div class="uk-position-large uk-position-top-left" style="transform: rotate(15deg)">
+			<svg width="144" height="144" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" data-reactroot="" class="uk-animation-stroke" style="--uk-animation-stroke: 46;" uk-parallax="rotate: 30">
+			<path stroke-linejoin="round" stroke-linecap="round" stroke-width="0.5" stroke="#fff" d="M3 3L15.95 15.95"></path>
+			<path stroke-linejoin="round" stroke-linecap="round" stroke-width="0.5" stroke="#fff" d="M21 20L19 18L18 19L20 21L21 20Z"></path>
+			<path stroke-linejoin="round" stroke-linecap="round" stroke-width="0.5" stroke="#fff" fill="none" d="M15.9769 15.9768C14.4699 17.4838 14.8962 19.9194 15.9768 21L21 15.9768C19.9194 14.8962 17.4837 14.4699 15.9769 15.9768Z"></path>
+			<path stroke-linejoin="round" stroke-linecap="round" stroke-width="0.5" stroke="#fff" d="M20.9998 3L8.0498 15.95"></path>
+			<path stroke-linejoin="round" stroke-linecap="round" stroke-width="0.5" stroke="#fff" d="M3 20L5 18L6 19L4 21L3 20Z"></path>
+			<path stroke-linejoin="round" stroke-linecap="round" stroke-width="0.5" stroke="#fff" fill="none" d="M8.02314 15.9768C9.53016 17.4838 9.10379 19.9194 8.02321 21L3 15.9768C4.08057 14.8962 6.51627 14.4699 8.02314 15.9768Z"></path>
+			</svg>
+		</div>
+		<!-- Movie -->
+		<div class="uk-position-large uk-position-bottom-left" style="transform: rotate(-25deg)">
+			<svg width="256" height="256" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" data-reactroot="" class="uk-animation-stroke" style="--uk-animation-stroke: 70;" uk-parallax="target: #bg-icons; y: 100,0; rotate: -180; blur: 5,1; scale: 1,1.5">
+			<path stroke-width="0.2" stroke="#ffffff" fill="none" d="M2 11H22V21H2V11Z"></path>
+			<path stroke-width="0.2" stroke="#ffffff" fill="none" d="M2 7.57143L22 3V6.5L2 11V7.57143Z"></path>
+			<path stroke-width="0.2" stroke="#ffffff" d="M2 14H22"></path>
+			<path stroke-width="0.2" stroke="#ffffff" d="M6 11V14"></path>
+			<path stroke-width="0.2" stroke="#ffffff" d="M10 11V14"></path>
+			<path stroke-width="0.2" stroke="#ffffff" d="M14 11V14"></path>
+			<path stroke-width="0.2" stroke="#ffffff" d="M18 11V14"></path>
+			</svg>
+		</div>
+		<!-- Guitar -->
+		<div class="uk-position-large uk-position-bottom-right">
+			<svg width="144" height="144" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" data-reactroot="" class="uk-animation-stroke" style="--uk-animation-stroke: 70;" uk-parallax="opacity: 0.5,1; rotate: -5,25; scale: 1,1.5">
+			<path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="10" stroke-width="0.5" stroke="#ffffff" fill="none" d="M12 14L16.0053 12.5L14.5033 15.5C14.5033 15.5 17.0301 18.5414 16.0053 20.3032C14.6892 22.5657 9.31596 22.5657 7.99989 20.3032C6.97507 18.5414 9.49661 15.5 9.49661 15.5L7.99989 12.5L12 14Z"></path>
+			<path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="10" stroke-width="0.5" stroke="#ffffff" d="M12 14V2"></path>
+			<path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="10" stroke-width="0.5" stroke="#ffffff" d="M12 18H12.01"></path>
+			<path stroke-linejoin="round" stroke-linecap="round" stroke-width="0.5" stroke="#ffffff" d="M13 2H11L12 4L13 2Z"></path>
+			</svg>
+		</div>
+		<!-- Mouse -->
+		<div class="uk-position-large uk-position-top-right">
+			<svg width="144" height="144" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" data-reactroot="" class="uk-animation-stroke" style="--uk-animation-stroke: 70;" uk-parallax="target: #bg-icons; y: 150,0; blur:1,0; x: -100,-100">
+			<path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="10" stroke-width="0.5" stroke="#ffffff" d="M22 2L20.13 5.24C19.55 6.24 18.11 6.24 17.53 5.24L16.96 4.25C16.38 3.25 14.94 3.25 14.36 4.25L12.5 7.47"></path>
+			<path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="10" stroke-width="0.5" stroke="#ffffff" fill="none" d="M4.49998 21.33C2.10998 19.95 1.28998 16.89 2.66998 14.5L5.66998 9.29997C7.04998 6.90997 10.11 6.08997 12.5 7.46997C14.89 8.84997 15.71 11.91 14.33 14.3L11.33 19.5C9.94998 21.89 6.88998 22.71 4.49998 21.33Z" clip-rule="evenodd" fill-rule="evenodd"></path>
+			<path stroke-linecap="round" stroke-miterlimit="10" stroke-width="0.5" stroke="#ffffff" fill="none" d="M9.49998 12.67L12.5 7.46997C10.11 6.08997 7.04998 6.90997 5.66998 9.29997L5.16998 10.17L9.49998 12.67Z"></path>
+			<path stroke-linecap="round" stroke-miterlimit="10" stroke-width="0.5" stroke="#ffffff" fill="none" d="M9.5 12.67L12.5 7.46997C14.89 8.84997 15.71 11.91 14.33 14.3L13.83 15.17L9.5 12.67Z"></path>
+			</svg>
+		</div>
+	</div>
 	<div class="uk-container">
 		<!-- Hero -->
 		<div class="content__section uk-flex uk-flex-middle uk-flex-center" data-bgcolor="rgba(129,25,28,1)" uk-height-viewport>
@@ -210,7 +253,7 @@ layout: none
 					</div>
 					<div>
 						<div class="uk-card uk-card-secondary uk-card-body no-background">
-							<p>Several <a class="uk-link-text" href="https://sevenseasdanmei.com" target="_blank">Danmei</a> series written by Dr. Solo share the same continuity, forming the <em>Solo Universe</em> (Solo 宇宙). However, each series are fairly stand alone and can still be enjoyed separately. The series spans across various subject matters, from sports to various parts of show biz.</em></p>
+							<p>Several <a class="uk-link-text" href="https://sevenseasdanmei.com" target="_blank">Danmei</a> series written by Dr. Solo share the same continuity, forming the <em>Solo Universe</em> (Solo 宇宙). However, each series are fairly stand alone and can still be enjoyed separately. The series spans across various subject matters, from sports to various parts of showbiz.</em></p>
 
 							<div class="uk-text-center uk-margin uk-blend-overlay"><span uk-icon="icon: more; ratio: 2"></span></div>
 						</div>
