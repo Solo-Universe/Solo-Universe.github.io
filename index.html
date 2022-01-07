@@ -222,7 +222,7 @@ layout: none
 <body>
 <div class="content">
 	<!-- Icons -->
-	<div id="bg-icons" class="uk-position-absolute uk-inline uk-width-expand overlay-blend" uk-height-viewport>
+	<div id="bg-icons" class="uk-position-absolute uk-inline uk-inline-clip uk-width-expand overlay-blend uk-margin-large-top" uk-height-viewport>
 		<!-- Fencing -->
 		<div class="uk-position-large uk-position-top-left">
 			<svg width="144" height="144" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" data-reactroot="" class="uk-animation-stroke" style="--uk-animation-stroke: 46;" uk-parallax="rotate: 15,30">
@@ -236,7 +236,7 @@ layout: none
 		</div>
 		<!-- Movie -->
 		<div class="uk-position-large uk-position-bottom-left">
-			<svg width="256" height="256" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" data-reactroot="" class="uk-animation-stroke" style="--uk-animation-stroke: 70;" uk-parallax="target: #bg-icons; y: 100,0; rotate: -25,-180; blur: 5,1; scale: 1,1.5">
+			<svg width="256" height="256" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" data-reactroot="" class="uk-animation-stroke" style="--uk-animation-stroke: 70;" uk-parallax="target: #bg-icons; y: 0,-100; rotate: -25,-180; blur: 5,1; scale: 1,1.5">
 			<path stroke-width="0.2" stroke="#ffffff" fill="none" d="M2 11H22V21H2V11Z"></path>
 			<path stroke-width="0.2" stroke="#ffffff" fill="none" d="M2 7.57143L22 3V6.5L2 11V7.57143Z"></path>
 			<path stroke-width="0.2" stroke="#ffffff" d="M2 14H22"></path>
@@ -248,7 +248,7 @@ layout: none
 		</div>
 		<!-- Guitar -->
 		<div class="uk-position-large uk-position-bottom-right">
-			<svg width="144" height="144" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" data-reactroot="" class="uk-animation-stroke" style="--uk-animation-stroke: 70;" uk-parallax="opacity: 0.5,1; rotate: -5,25; scale: 1,1.5">
+			<svg width="144" height="144" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" data-reactroot="" class="uk-animation-stroke" style="--uk-animation-stroke: 70;" uk-parallax="y: -100, -150; opacity: 0.5,1; rotate: -5,25; scale: 1,1.5">
 			<path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="10" stroke-width="0.5" stroke="#ffffff" fill="none" d="M12 14L16.0053 12.5L14.5033 15.5C14.5033 15.5 17.0301 18.5414 16.0053 20.3032C14.6892 22.5657 9.31596 22.5657 7.99989 20.3032C6.97507 18.5414 9.49661 15.5 9.49661 15.5L7.99989 12.5L12 14Z"></path>
 			<path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="10" stroke-width="0.5" stroke="#ffffff" d="M12 14V2"></path>
 			<path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="10" stroke-width="0.5" stroke="#ffffff" d="M12 18H12.01"></path>
@@ -644,7 +644,7 @@ layout: none
 			            <div class="uk-flex-middle" uk-grid>
 			            	<div class="uk-width-auto"><div class="uk-text-center uk-text-meta"><span uk-icon="icon: info; ratio: 1.5"></span></div></div>
 				            <div class="uk-width-expand uk-text-left">
-				            	<p class="uk-text-meta"><em>Lose Control</em> is about the inner workings of the acting industry, with the shenanigans of an up-and-coming actor with an award-winning movie star.</p>
+				            	<p class="uk-text-meta"><em>Lose Control</em> shows the inner workings of the showbiz via the shenanigans of an up-and-coming actor and an award-winning movie star.</p>
 				            </div>
 				        </div>
 			            <div class="uk-flex-middle" uk-grid>
@@ -675,7 +675,7 @@ layout: none
 			            <div class="uk-flex-middle" uk-grid>
 			            	<div class="uk-width-auto"><div class="uk-text-center uk-text-meta"><span uk-icon="icon: info; ratio: 1.5"></span></div></div>
 				            <div class="uk-width-expand uk-text-left">
-				            	<p class="uk-text-meta"><em>My Neighbour Wen Xiaohua</em> is about a secret crush that panned out eventually.</p>
+				            	<p class="uk-text-meta"><em>My Neighbour Wen Xiaohua</em> is about secret crushes. From double single arrows to single double-edged arrow.</p>
 				            </div>
 				        </div>
 			            <div class="uk-flex-middle" uk-grid>
@@ -686,6 +686,12 @@ layout: none
 			            		<a class="uk-button uk-button-default uk-button-small uk-margin-small-bottom" href="#">School Life</a>
 			            	</div>
 		            	</div>
+		            	<div class="uk-flex-middle" uk-grid>
+			            	<div class="uk-width-auto"><div class="uk-text-center card-icon uk-text-meta"><span uk-icon="icon: link; ratio: 1.5"></span></div></div>
+				            <div class="uk-width-expand uk-text-left">
+					            <a class="uk-button uk-button-default uk-button-small uk-margin-small-bottom" href="http://www.jjwxc.net/onebook.php?novelid=2618733" target="_blank">Raw</a>
+					        </div>
+					    </div>
 					</div>
 				</div>
 			</div>
@@ -720,44 +726,10 @@ layout: none
         }
         enter(direction = 'down') {
             this.entertime = setTimeout(()=> {
-                // this.DOM.title.word.style.opacity = 1;
-                // anime.remove(this.DOM.title.letters);
-                // anime({
-                //     targets: this.DOM.title.letters,
-                //     duration: 800,
-                //     delay: (target,index) => index*20,
-                //     easing: 'easeOutElastic',
-                //     translateY: [direction === 'down' ? '100%' : '-100%', '0%'],
-                //     opacity: {
-                //         value: [0,1],
-                //         duration: 300,
-                //         easing: 'linear'
-                //     }
-                // });
-
                 bodyEl.style.backgroundColor = this.DOM.el.dataset.bgcolor;
             }, 150);
         }
-        exit(direction = 'down') {
-            // anime.remove(this.DOM.title.letters);
-            // if ( this.entertime ) {
-            //     clearTimeout(this.entertime);
-            // }
-
-            // anime({
-            //     targets: this.DOM.title.letters,
-            //     duration: 250,
-            //     delay: (target,index) => index*20,
-            //     easing: 'easeOutExpo',
-            //     translateY: ['0%',direction === 'down' ? '-100%' : '100%'],
-            //     opacity: {
-            //         value: [1,0],
-            //         duration: 150,
-            //         easing: 'linear'
-            //     },
-            //     complete: () => this.DOM.title.word.style.opacity = 0
-            // });
-        }
+        exit(direction = 'down') {}
     }
 
     let observer;
